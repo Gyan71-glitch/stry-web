@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | STRY India & Australia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .coming-soon-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('assets/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem;
+        }
+        .coming-soon-content h2 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .coming-soon-content h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .coming-soon-content p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        @media (max-width: 768px) {
+            .coming-soon-content h1 {
+                font-size: 3.5rem;
+            }
+            .coming-soon-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo.png" alt="STRY Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Back to Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="coming-soon-hero">
+            <div class="coming-soon-content">
+                <h2>India & Australia</h2>
+                <h1>Coming Soon</h1>
+                <p>We are expanding our presence to provide localized workforce solutions in India and Australia. Stay tuned for our grand launch.</p>
+                <div class="hero-btns">
+                    <a href="index.html" class="btn btn-primary">Back to Homepage</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: var(--dark-navy); padding: 2rem 0; text-align: center; color: #94a3b8;">
+        <div class="container">
+            <p>&copy; 2024 STRY. Global Expansion in Progress.</p>
+        </div>
+    </footer>
+</body>
+</html>

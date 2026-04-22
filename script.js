@@ -61,20 +61,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Client Carousel Auto-Scroll Logic
+    const track = document.getElementById('client-track');
+    const dots = document.querySelectorAll('.dot');
+    let currentIdx = 0;
+    const slideCount = 5;
+
+    function updateCarousel(index) {
+        if (!track) return;
+        currentIdx = index;
+        track.style.transform = `translateX(-${currentIdx * 100}%)`;
+        
+        dots.forEach((dot, i) => {
+            if (i === currentIdx) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    function autoScroll() {
+        currentIdx = (currentIdx + 1) % slideCount;
+        updateCarousel(currentIdx);
+    }
+
+    let scrollInterval = setInterval(autoScroll, 3000);
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(scrollInterval);
+            updateCarousel(index);
+            scrollInterval = setInterval(autoScroll, 3000);
+        });
+    });
+
     // Scroll Effects: Header & Back to Top
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.85)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+        if (header) {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.85)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
         }
 
-        if (window.scrollY > 500) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
+        if (backToTop) {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
         }
     });
 });
